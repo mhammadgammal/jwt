@@ -1,7 +1,5 @@
 const express = require('express');
-require(
-    'dotenv'
-).config();
+require('dotenv').config();
 const apiRouter = require('./routes/api')
 const notFoundMiddleware = require('./middleware/notFoundMiddleware');
 const errorHandlerMiddleware = require('./middleware/errorHandlerMiddleware');
@@ -10,7 +8,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('api/v1', apiRouter)
+app.use('/api/v1', apiRouter)
 app.get(
     '/',
     (req, res) => res.send('This is JWT Authentication Server')
